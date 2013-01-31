@@ -1,0 +1,8 @@
+ssh==1.7.14
+pycrypto==2.6
+Jinja2==2.6
+Fabric==1.4.2
+django-fab-deploy==0.7.5
+distribute==0.6.24
+psycopg2
+httplib2
