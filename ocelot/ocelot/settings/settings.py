@@ -115,6 +115,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'fandjango.middleware.FacebookMiddleware',
 )
 
 ROOT_URLCONF = 'ocelot.urls'
@@ -151,12 +152,12 @@ INSTALLED_APPS = (
 
     # third party apps
     'south',
-    'bootstrap',
     'dajaxice',
     'dajax',
-    'tastypie',
+    'fandjango',
     
     # our apps
+    'ocelot.app.facebook',
 
 )
 
