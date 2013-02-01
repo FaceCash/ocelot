@@ -6,3 +6,6 @@ django-fab-deploy==0.7.5
 distribute==0.6.24
 psycopg2
 httplib2
+-r base.txt
+-r test.txt
+-r utils.txt
