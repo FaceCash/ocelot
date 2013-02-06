@@ -6,16 +6,19 @@ from ocelot.app.core.models import DefaultFields
 
 
 class Campaign(DefaultFields):
+    title = models.CharField(max_length=300, verbose_name=_('title'))
     facebook_id = models.BigIntegerField(verbose_name=_('facebook id'))
     likers = models.ManyToManyField('fandjango.User', through='Like', related_name='Campaigns')
     owner = models.ForeignKey('fandjango.User', related_name=_('owner'))
+    price = models.ForeignKey('Price', verbose_name=_('price'))
+    limit_likes = models.IntegerField(verbose_name=_('limit of likes'))
 
     class Meta:
         verbose_name = _('Campaign')
         verbose_name_plural = _('Campaigns')
 
     def __unicode__(self):
-        pass
+        return 'Owner: %s | Title: %s' % self.owner.username, self.title
 
 
 class Like(DefaultFields):
@@ -27,4 +30,20 @@ class Like(DefaultFields):
         verbose_name_plural = _('Likes')
 
     def __unicode__(self):
-        pass
+        return 'Campaign: %s. Username: %s' % (self.campaign.title, self.facebook_user.username)
+
+
+class Price(DefaultFields):
+    total = models.DecimalField(decimal_places=2, verbose_name=_('total'))
+    user_commission = models.DecimalField(decimal_places=2, verbose_name=_('user cost'))
+
+    class Meta:
+        verbose_name = _('Price')
+        verbose_name_plural = _('Prices')
+
+    def __unicode__(self):
+        return 'Total: $%s | User commission: $%s' % (str(self.total), str(self.user_commission))
+
+
+
+
