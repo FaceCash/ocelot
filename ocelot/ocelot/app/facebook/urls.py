@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, url
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns('ocelot.app.facebook',
     url(r'^$', 'views.home', name='home'),
 )
 

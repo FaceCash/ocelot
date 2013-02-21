@@ -9,7 +9,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # my apps
-    url(r'^/facebook/', include('ocelot.app.facebook.urls')),
+    url(r'^facebook/', include('ocelot.app.facebook.urls')),
     
     url(r'^login/$', 'ocelot.app.core.views.site_login', name='login'),
     url(r'^logout/$', 'ocelot.app.core.views.site_logout', name='logout'),
