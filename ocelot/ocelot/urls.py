@@ -1,6 +1,5 @@
 #-*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
-from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.contrib import admin
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
@@ -10,7 +9,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # my apps
-    
+    url(r'^/facebook/', include('ocelot.app.facebook.urls')),
     
     url(r'^login/$', 'ocelot.app.core.views.site_login', name='login'),
     url(r'^logout/$', 'ocelot.app.core.views.site_logout', name='logout'),

@@ -22,8 +22,8 @@ class Campaign(DefaultFields):
 
 
 class Like(DefaultFields):
-    campaign = models.ForeignKey('Campaign', verbose_name=_('campaign'))
-    facebook_user = models.ForeignKey('fandjango.User', verbose_name=_('facebook user'))
+    campaign = models.ForeignKey('Campaign', verbose_name=_('campaign'), related_name='likes')
+    facebook_user = models.ForeignKey('fandjango.User', verbose_name=_('facebook user'), related_name='likes')
 
     class Meta:
         verbose_name = _('Like')
